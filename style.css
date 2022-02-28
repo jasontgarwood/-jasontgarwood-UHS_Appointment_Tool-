@@ -1,0 +1,201 @@
+*{
+    font-family: Calibri;
+}
+
+a {
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 20px;
+    color: #BB0000; 
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: normal;
+}
+
+p {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: lighter;
+}
+
+/* Buttons */
+button {
+    font-family: Calibri;
+    border-radius: 10px;
+    border: none;
+    font-weight: bolder;
+    filter: drop-shadow(2px 4px 2px gray);
+    
+}
+
+.buttonRed1 {
+    width: 300px;
+    padding: 20px;
+    margin: 20px; 
+    background-color: #BB0000;
+    color: white;
+    font-size: 24px;  
+}
+
+.timeButton {
+    width: 70px;
+    padding: 10px;
+    margin: 10px; 
+    background-color: white;
+    color: black;
+    font-size: 18px;  
+}
+
+.arrowButton {
+    width: 40px;
+    padding: 5px;
+    margin: 10px; 
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 18px; 
+}
+
+.pullDown {
+    padding: 4px;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px; 
+    margin: 10px;
+}
+
+.noButton {
+    width: 300px;
+    height: 50px;
+    margin: 30px;
+    font-size: 24px; 
+    background-color: white;
+}
+
+.yesButton {
+    width: 300px;
+    height: 60px;
+    margin: 30px;
+    margin-top: 60px;
+    font-size: 24px;
+    color: white;
+    background-color: #BB0000;
+}
+
+.appointment {
+    background-color: white;
+    border-radius: 10px;
+    margin: 100px;
+    padding: 20px;
+    
+}
+
+.popUp {
+    background-color: #F0F0F0;
+}
+
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    background-color: #F0F0F0;
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    background-color: white;
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .inline {
+      display: inline-block;
+  }
+
+  /* Style the image inside the centered container, if needed */
+    .centered img {
+        width: 300px;
+  }
+  
+
+    /*          calander formatting          */
+    /* weekday title */
+    .weekdays {
+        margin: 0;
+        padding: 10px 0;
+  }
+  
+    .weekdays li {
+        display: inline-block;
+        width: 13%;
+        color: black;
+        text-align: center;
+  }
+
+  /* day numbers */
+    .days {
+        padding: 10px 0;
+        margin: 0;
+  }
+  
+    .days li {
+        height:50px;
+        display: inline-block;
+        width: 13%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:18px;
+        color: gray;
+  }
+
+    /*          appointment selection            */
+      /* time selection */
+
+    .dayLabel {
+        margin:0;
+        text-align: left
+    }
+
+    .appointmentTimes {
+        padding: 10px 0;
+        margin: 20px;
+        background-color: #F0F0F0;
+        border-radius: 10px;
+        width: 500px;
+      }
+
+    .appointmentTimes li {
+        display: inline-block;
+        text-align: center;
+        margin: 0px;
+      }
+    
+    .dayLabel {
+        font-size: 20px;
+      }
+
+    
+    .help {
+        font-size: 14px;
+    }

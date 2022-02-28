@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UHS Appointment Tool</title>
+        <meta charset="UTF-8">
+
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+   
+
+    <!-- main content of page -->
+    <body>
+        <!-- content for left portion of screen -->
+        <div class="split left">
+            <!-- navigation links -->
+            <nav>
+                <a href="home.html">Home</a> 
+                <a>Vaccines</a> 
+                <a>My Appointments</a> 
+                <a>Log Out</a>  
+            </nav>
+
+            <div class="centered">
+                <h2>When are you Available?</h2>
+                <!-- month picker -->
+                <div>
+                    <button class="arrowButton"><</button> 
+                    <p class="inline">Month</p>
+                    <button class="arrowButton">></button> 
+                </div>
+
+                <!-- weekday title -->
+                <div>
+                    <ul class="weekdays">
+                        <li>Mo</li>
+                        <li>Tu</li>
+                        <li>We</li>
+                        <li>Th</li>
+                        <li>Fr</li>
+                        <li>Sa</li>
+                        <li>Su</li>
+                    </ul>
+                </div>
+
+                <!-- day numbers -->
+                <div>
+                    <ul class="days">
+                        <li>1</li>  <li>2</li>  <li>3</li>  <li>4</li>  <li>5</li>
+                        <li>6</li>  <li>7</li>  <br>  <li>8</li>  <li>9</li>  <li>10</li>
+                        <li>11</li> <li>12</li> <li>13</li> <li>14</li>  <br>  <li>15</li>
+                        <li>16</li> <li>17</li> <li>18</li> <li>19</li> <li>20</li>
+                        <li>21</li>  <br>  <li>22</li> <li>23</li> <li>24</li> <li>25</li>
+                        <li>26</li> <li>27</li> <li>28</li>  <br>
+                      </ul>
+                </div>
+
+                <!-- Choose a location input -->
+                <div>
+                    <h2></h2>
+                    <p>Choose an on campus location that works for you</p>
+                    <select name="location" id="location" class="pullDown">
+                        <!-- Pulldown Content -->
+                        <option value="Any">Any</option>
+                        <option value="gym">University Gym</option>
+                        <option value="garage">University garage</option>
+                    </select>
+                </div>
+                <p class="help">For student health insurance and clinic information: https://www.cmu.edu/health-services 
+                    For medical advice: call 412-268-2157, option 2 (or after hours, 844-881-7176).</p>
+            </div>
+            
+        </div>
+
+        <!-- content for right portion of screen -->
+        <div class="split right">
+            <div class="centered">
+                <h2>Select an available <b>vaccination</b> <br>appointment.</h2>
+                
+                <!-- time selection input -->
+                <div>
+                    <p class="dayLabel"> Monday, [date]</p>
+                    <ul class="appointmentTimes">
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                    </ul>
+                </div>
+
+                <!-- time selection input -->
+                <div>
+                    <p class="dayLabel"> Tuesday, [date]</p>
+                    <ul class="appointmentTimes">
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                    </ul>
+                </div>
+
+                <!-- time selection input -->
+                <div>
+                    <p class="dayLabel"> Wednesday, [date]</p>
+                    <ul class="appointmentTimes">
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+    </body>
+
+
+    
+
+
+</html> 
+
