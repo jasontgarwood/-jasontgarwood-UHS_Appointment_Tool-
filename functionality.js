@@ -77,7 +77,7 @@ for (var i = 0; i < apptBttn.length; i++) {
 }  
 
 //update current selected location based on pulldown menu
-if (window.location.pathname == '/C:/Users/jason/Documents/GitHub/UHS_Appointment_Tool/getTest.html') { 
+if (document.getElementByClassName("select") !== null) { 
     var selection = document.querySelector('select')
     var currLocation = selection.options[selection.selectedIndex].text
     selection.addEventListener('change', function() {
