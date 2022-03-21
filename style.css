@@ -1,26 +1,24 @@
+/* overall style */
 *{
     font-family: Calibri;
 }
-
 a {
     font-size: 18px;
     font-weight: bolder;
     padding: 20px;
     color: #BB0000; 
 }
-
 h2 {
     font-size: 36px;
     font-weight: normal;
 }
-
 p {
     font-size: 20px;
     margin: 10px;
     font-weight: lighter;
 }
 
-/* Buttons */
+/* Buttons and inputs */
 button {
     font-family: Calibri;
     border-radius: 10px;
@@ -30,7 +28,6 @@ button {
     background-color: white;
 
 }
-
 .buttonRed1 {
     width: 300px;
     padding: 20px;
@@ -39,7 +36,6 @@ button {
     color: white;
     font-size: 24px;  
 }
-
 .buttonRed2 {
     padding: 10px;
     background-color: #BB0000;
@@ -48,7 +44,6 @@ button {
     white-space: nowrap;
     display: inline-block;
 }
-
 .timeButton {
     width: 70px;
     padding: 10px;
@@ -57,7 +52,6 @@ button {
     color: black;
     font-size: 18px;  
 }
-
 .arrowButton {
     width: 40px;
     padding: 5px;
@@ -67,16 +61,6 @@ button {
     color: black;
     font-size: 18px; 
 }
-
-.pullDown {
-    padding: 4px;
-    border: none;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 20px; 
-    margin: 10px;
-}
-
 .noButton {
     width: 200px;
     height: 60px;
@@ -84,7 +68,6 @@ button {
     font-size: 24px; 
     background-color: white;
 }
-
 .yesButton {
     width: 300px;
     height: 60px;
@@ -94,7 +77,6 @@ button {
     color: white;
     background-color: #BB0000;
 }
-
 .typeButton {
   width: 200px;
   height: 60px;
@@ -102,7 +84,6 @@ button {
   font-size: 24px; 
   background-color: #F0F0F0;
 }
-
 .bookButton {
   width: 300px;
   height: 70px;
@@ -113,22 +94,57 @@ button {
   background-color: #F0F0F0;
   filter: none;
 }
-
-.appointment {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    white-space: nowrap;
+.pullDown {
+  padding: 4px;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px; 
+  margin: 10px;
+}
+/* calander formatting */
+th {
+  padding: 20px;
+  font-weight: normal;
+  font-size:18px;
+  color: gray;
+}
+.dayLabel {
+  margin:0;
+  text-align: left;
+  font-size: 20px;
+}
+.dayTitle > th {
+  font-weight: bold;
+  color: black;
+}
+/* time selection */
+.appointmentTimes {
+  padding: 10px;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  width: 500px;
+  display: inline-block;    
+}
+.appointmentTimes li {
+  display: inline-block;
+  text-align: center;
+  margin: 0px;
 }
 
-/*Comleted Appointment*/
+/* appointment display style */
+.appointment {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  white-space: nowrap;
+}
 .bookedAppointment {
   background-color: #F0F0F0;
   border-radius: 10px;
   width: 550px;
   padding: 20px;
 }
-
 .selectedAppointment {
   background-color: #F0F0F0;
   border-radius: 10px;
@@ -137,98 +153,51 @@ button {
   display: inline-block;
 }
 
+/* page layout */
 /* Split the screen in half */
 .split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #F0F0F0;
+}
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+}
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.inline {
+  display: inline-block;
+}
+.centered img {
+  width: 300px;
+}
   
-  /* Control the left side */
-  .left {
-    left: 0;
-    background-color: #F0F0F0;
-  }
-  
-  /* Control the right side */
-  .right {
-    right: 0;
-    background-color: white;
-  }
-  
-  /* If you want the content centered horizontally and vertically */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  .inline {
-      display: inline-block;
-  }
-
-  /* Style the image inside the centered container, if needed */
-    .centered img {
-        width: 300px;
-  }
-  
-
-    /*          calander formatting          */
-    /* weekday title */
-    th {
-        padding: 20px;
-        font-weight: normal;
-        font-size:18px;
-        color: gray;
-    }
-    .dayTitle > th {
-      font-weight: bold;
-      color: black;
-    }
-  
-    /*          appointment selection            */
-      /* time selection */
-
-    .dayLabel {
-        margin:0;
-        text-align: left
-    }
-
-    .appointmentTimes {
-        padding: 10px;
-        background-color: #F0F0F0;
-        border-radius: 10px;
-        width: 500px;
-        display: inline-block;
-        
-      }
-
-    .appointmentTimes li {
-        display: inline-block;
-        text-align: center;
-        margin: 0px;
-      }
-    
-    .dayLabel {
-        font-size: 20px;
-      }
-
-    
-    .help {
-        font-size: 14px;
-    }
-
-    #cart {
-      color: white;
-      background-color: #BB0000;
-      transform: translate(40VW, 3VH);
-    }
+/* other */
+.help {
+  font-size: 14px;
+}
+#cart {
+  color: white;
+  background-color: #BB0000;
+  transform: translate(40VW, 3VH);
+}
 
    
 

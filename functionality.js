@@ -87,7 +87,6 @@ if (window.location.pathname == '/C:/Users/jason/Documents/GitHub/UHS_Appointmen
     selection.addEventListener('change', function() {
         currLocation = selection.options[selection.selectedIndex].text
         currAppointment.location = currLocation
-        
         //update the appointment display and book button 
         resetBookButton()
         updateDisplay()
@@ -100,7 +99,7 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
     var button = apptTypeBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { ///////////////////////////////////////////
+        button.addEventListener('click', function () { ///////////////////////////////////////////////////////////
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptTypeBttn.length; i++) {
@@ -110,12 +109,9 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
             //update formating to show current selection
             apptTypeBttn[index].style.backgroundColor = "#BB0000"
             apptTypeBttn[index].style.color = "white"
-            
             //update currTime
             var currType = apptTypeBttn[index].innerText
             currAppointment.type = currType
-
-            
             //update the appointment display and book button 
             resetBookButton()
             updateDisplay()
@@ -140,7 +136,6 @@ function addAppointmentClick(event) {
     if (bookButton.innerText == "Add to my appointments") {
         bookButton.innerText = "Added"
         bookButton.style.backgroundColor = "green"
-        
         //add appointment to array (this is part of the next assignment), for now just log
         myAppts.push(currAppointment)
         console.log(myAppts)
@@ -161,6 +156,7 @@ function removeAppointment(event) {
     }
 
 //////////////////////// helper functions ////////////////////////
+//restore book button to clickable state
 function resetBookButton() {
     //only reset if all appt info is selected
     if (currAppointment.time !== 'none selected' && currAppointment.location !== 'any' && currAppointment.type !== 'none selected') {
