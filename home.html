@@ -3,12 +3,10 @@
     <head>
         <title>UHS Appointment Tool</title>
         <meta charset="UTF-8">
-
-        <!-- styles -->
+        <!-- styles/scripts -->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="functionality.js" async></script>
     </head>
-
-
 
     <!-- main content of page -->
     <body>
@@ -25,8 +23,7 @@
                 <img src="images/profilePhoto.png" alt="Profile Photo">
                 <p>Last tested: 1/11/22</p>
                 <p>Last vaccinated: 1/11/22</p>
-                <button class="buttonRed1">My appointments</button>
-
+                <button class="buttonRed1" onclick="window.location.href='myAppointments.html';">My appointments</button>
                 <p class="help">For student health insurance and clinic information: https://www.cmu.edu/health-services 
                     For medical advice: call 412-268-2157, option 2 (or after hours, 844-881-7176).</p>
             </div>
@@ -35,9 +32,8 @@
         <!-- content for right portion of screen -->
         <div class="split right">
             <div class="centered">
-                <h2>Shedule an <br> appointment</h2>
-                <button class="buttonRed1" onclick="window.location.href='getTest.html';">Get tested</button> <br>
-                <button class="buttonRed1">Get a vaccine</button>
+                <h2>Shedule an <br> appointment?</h2>
+                <button class="buttonRed1" onclick="window.location.href='getTest.html';">Click here</button> <br>
             </div>
         </div>
     </body>

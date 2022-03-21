@@ -3,12 +3,10 @@
     <head>
         <title>UHS Appointment Tool</title>
         <meta charset="UTF-8">
-
-        <!-- styles -->
+        <!-- styles/scripts -->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="functionality.js" async></script>
     </head>
-
-   
 
     <!-- main content of page -->
     <body>
@@ -17,43 +15,37 @@
             <!-- navigation links -->
             <nav>
                 <a href="home.html">Home</a> 
-                <a>Vaccines</a> 
-                <a>My Appointments</a> 
+                <a href="myAppointments.html";>My Appointments</a> 
                 <a>Log Out</a>  
             </nav>
-
             <div class="centered">
                 <h2>When are you Available?</h2>
                 <!-- month picker -->
                 <div>
                     <button class="arrowButton"><</button> 
-                    <p class="inline">Month</p>
+                    <p class="inline">February</p>
                     <button class="arrowButton">></button> 
                 </div>
-
-                <!-- weekday title -->
                 <div>
-                    <ul class="weekdays">
-                        <li>Mo</li>
-                        <li>Tu</li>
-                        <li>We</li>
-                        <li>Th</li>
-                        <li>Fr</li>
-                        <li>Sa</li>
-                        <li>Su</li>
-                    </ul>
-                </div>
-
-                <!-- day numbers -->
-                <div>
-                    <ul class="days">
-                        <li>1</li>  <li>2</li>  <li>3</li>  <li>4</li>  <li>5</li>
-                        <li>6</li>  <li>7</li>  <br>  <li>8</li>  <li>9</li>  <li>10</li>
-                        <li>11</li> <li>12</li> <li>13</li> <li>14</li>  <br>  <li>15</li>
-                        <li>16</li> <li>17</li> <li>18</li> <li>19</li> <li>20</li>
-                        <li>21</li>  <br>  <li>22</li> <li>23</li> <li>24</li> <li>25</li>
-                        <li>26</li> <li>27</li> <li>28</li>  <br>
-                      </ul>
+                    <table class="calendar">
+                        <!-- weekday title -->
+                        <tr class="dayTitle">
+                            <th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th>
+                        </tr>
+                        <!-- day numbers -->
+                        <tr>
+                            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>
+                        </tr>
+                        <tr>
+                            <th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th>
+                        </tr>
+                        <tr>
+                            <th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th>
+                        </tr>
+                        <tr>
+                            <th>22</th><th>23</th><th>24</th><th>25</th><th>26</th><th>27</th><th>28</th>
+                        </tr>
+                    </table>                 
                 </div>
 
                 <!-- Choose a location input -->
@@ -64,79 +56,44 @@
                         <!-- Pulldown Content -->
                         <option value="Any">Any</option>
                         <option value="gym">University Gym</option>
-                        <option value="garage">University garage</option>
+                        <option value="garage">University Garage</option>
                     </select>
                 </div>
                 <p class="help">For student health insurance and clinic information: https://www.cmu.edu/health-services 
                     For medical advice: call 412-268-2157, option 2 (or after hours, 844-881-7176).</p>
-            </div>
-            
+            </div>        
         </div>
 
         <!-- content for right portion of screen -->
         <div class="split right">
             <div class="centered">
-                <h2>Select an available <b>vaccination</b> <br>appointment.</h2>
-                
+                <h2>Select an available <b>Testing</b> <br>appointment.</h2>             
+                <!-- vaccine selection input -->
+                <div>
+                    <button class="noButton">Vaccination</button>
+                    <button class="noButton">Test</button>
+                </div>
                 <!-- time selection input -->
                 <div>
-                    <p class="dayLabel"> Monday, [date]</p>
-                    <ul class="appointmentTimes">
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
+                    <ul class="appointmentTimes" id="availableAppts">
+                        <li><button class="timeButton">9:00a</button></li>
+                        <li><button class="timeButton">10:00a</button></li>
+                        <li><button class="timeButton">11:00a</button></li>
+                        <li><button class="timeButton">12:00a</button></li>
+                        <li><button class="timeButton">1:00p</button></li> <br>
+                        <li><button class="timeButton">2:00p</button></li>
+                        <li><button class="timeButton">3:00p</button></li>
+                        <li><button class="timeButton">4:00p</button></li>
+                        <li><button class="timeButton">5:00p</button></li>
+                        <li><button class="timeButton">6:00p</button></li>
                     </ul>
                 </div>
-
-                <!-- time selection input -->
                 <div>
-                    <p class="dayLabel"> Tuesday, [date]</p>
-                    <ul class="appointmentTimes">
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                    </ul>
+                    <p class="selectedAppointment"><br><br>Please Select a time.</p> 
+                    <button class="bookButton">click here once you've selected an appointment</button>
                 </div>
-
-                <!-- time selection input -->
-                <div>
-                    <p class="dayLabel"> Wednesday, [date]</p>
-                    <ul class="appointmentTimes">
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li> <br>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                        <li><button class="timeButton" onclick="window.location.href='getTest_popUp.html';">[time]</button></li>
-                    </ul>
-                </div>
-
-                
             </div>
         </div>
     </body>
-
-
-    
-
-
 </html> 
 

@@ -3,13 +3,12 @@
     <head>
         <title>UHS Appointment Tool</title>
         <meta charset="UTF-8">
-
-        <!-- styles -->
+        <!-- styles/scripts -->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="functionality.js" async></script>
+
     </head>
-
     
-
     <!-- main content of page -->
     <body>
         <!-- content for left portion of screen -->
@@ -19,34 +18,44 @@
             <nav>
                 <a href="home.html">Home</a> 
                 <a href="getTest.html">Tests</a> 
-                <a>Vaccines</a> 
-                <a>My Appointments</a> 
                 <a>Log Out</a>  
             </nav>
-
             <div class="centered">
-                <div> 
-                    <h2>Upcoming Appointments</h2>
-                    <p>RECENT 1</p>
-                    <p>RECENT 2</p>
+                <h2>Upcoming Appointments</h2>
+                <div class="upcomingAppointments">
+                    <div> 
+                        <p class="appointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                        <button class="buttonRed2">Cancel</button>
+                    </div>
+
+                    <div> 
+                        <p class="appointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                        <button class="buttonRed2">Cancel</button>
+                    </div>
+
                 </div>
                 <div> 
                     <h2>Schedule a new appointment</h2>
-                    <a href="getTest.html">Tests</a>
-                    <a href="getVaccine.html">Vaccines</a>
+                    <button class="noButton" onclick="window.location.href='getTest.html';">Get tested</button>
                 </div>
                 <div> 
                     <p>Last tested: 1/11/22</p>
                     <p>Last vaccinated: 1/11/22</p>
                 </div>
-            </div>
-            
+            </div>  
         </div>
 
         <!-- content for right portion of screen -->
         <div class="split right">
             <div class="centered">
-                
+                <h2> Previous Appointments</h2>
+                <div>
+                    <p class="bookedAppointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                    <p class="bookedAppointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                    <p class="bookedAppointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                    <p class="bookedAppointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                    <p class="bookedAppointment">[appointment type]   [month] [date], [time]  University [location]</p>
+                </div> 
             </div>
         </div>
     </body>

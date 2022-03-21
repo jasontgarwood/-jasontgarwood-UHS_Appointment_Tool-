@@ -27,7 +27,8 @@ button {
     border: none;
     font-weight: bolder;
     filter: drop-shadow(2px 4px 2px gray);
-    
+    background-color: white;
+
 }
 
 .buttonRed1 {
@@ -37,6 +38,15 @@ button {
     background-color: #BB0000;
     color: white;
     font-size: 24px;  
+}
+
+.buttonRed2 {
+    padding: 10px;
+    background-color: #BB0000;
+    color: white;
+    font-size: 16px; 
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .timeButton {
@@ -68,8 +78,8 @@ button {
 }
 
 .noButton {
-    width: 300px;
-    height: 50px;
+    width: 200px;
+    height: 60px;
     margin: 30px;
     font-size: 24px; 
     background-color: white;
@@ -85,12 +95,46 @@ button {
     background-color: #BB0000;
 }
 
+.typeButton {
+  width: 200px;
+  height: 60px;
+  margin: 30px;
+  font-size: 24px; 
+  background-color: white;
+}
+
+.bookButton {
+  width: 300px;
+  height: 70px;
+  margin: 30px;
+  font-weight: lighter;
+  font-size: 24px;
+  color: gray;
+  background-color: #F0F0F0;
+  filter: none;
+}
+
 .appointment {
     background-color: white;
     border-radius: 10px;
-    margin: 100px;
     padding: 20px;
-    
+    white-space: nowrap;
+}
+
+/*Comleted Appointment*/
+.bookedAppointment {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  width: 550px;
+  padding: 20px;
+}
+
+.selectedAppointment {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  height: 150px;
+  width: 520px;
+  display: inline-block;
 }
 
 .popUp {
@@ -141,33 +185,20 @@ button {
 
     /*          calander formatting          */
     /* weekday title */
-    .weekdays {
-        margin: 0;
-        padding: 10px 0;
-  }
-  
-    .weekdays li {
-        display: inline-block;
-        width: 13%;
-        color: black;
-        text-align: center;
-  }
-
-  /* day numbers */
-    .days {
-        padding: 10px 0;
-        margin: 0;
-  }
-  
-    .days li {
-        height:50px;
-        display: inline-block;
-        width: 13%;
-        text-align: center;
-        margin-bottom: 5px;
+   
+    th {
+        padding: 20px;
+        font-weight: normal;
         font-size:18px;
         color: gray;
-  }
+    }
+
+    .dayTitle > th {
+      font-weight: bold;
+      color: black;
+    }
+  
+
 
     /*          appointment selection            */
       /* time selection */
@@ -178,11 +209,12 @@ button {
     }
 
     .appointmentTimes {
-        padding: 10px 0;
-        margin: 20px;
+        padding: 10px;
         background-color: #F0F0F0;
         border-radius: 10px;
         width: 500px;
+        display: inline-block;
+        
       }
 
     .appointmentTimes li {
@@ -199,3 +231,6 @@ button {
     .help {
         font-size: 14px;
     }
+
+
+ 
