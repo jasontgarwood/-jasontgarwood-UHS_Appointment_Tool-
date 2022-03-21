@@ -8,14 +8,14 @@ function appt(type, time, location, date, month) {
     this.month = month
 }
 //array of appointments
-var myAppts = [];
+var myAppts = []
 // initialize calendat
 var selectedDay = 1
 //create the currently selected appointment 
-var currAppointment = new appt('TEST','none selected','any',selectedDay, 'February') 
+var currAppointment = new appt('none selected','none selected','any',selectedDay, 'February') 
 
-//////////////////////// appointment booking page ////////////////////////
-//go through calander days, update style when clicked, and update the current day
+//////////////////////// update current appointment information ////////////////////////
+//update current appointment day
 var calendar = document.querySelectorAll('th')
 for (var i = 7; i < calendar.length; i++) {
     var day = calendar[i]
@@ -49,13 +49,13 @@ for (var i = 7; i < calendar.length; i++) {
         })}
     click(i)
 }
-//update current appointment info
+//update current appointment time
 var apptBttn = document.getElementsByClassName('timeButton')
 for (var i = 0; i < apptBttn.length; i++) {
     var button = apptBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { 
+        button.addEventListener('click', function () { ///////////////////////////////////////////
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptBttn.length; i++) {
@@ -81,7 +81,7 @@ for (var i = 0; i < apptBttn.length; i++) {
 }  
 
 //update current selected location based on pulldown menu
-if (window.location.pathname == '/C:/Users/jason/Documents/1classwork/PUI/A6/getTest.html') { 
+if (window.location.pathname == '/C:/Users/jason/Documents/GitHub/UHS_Appointment_Tool/getTest.html') { 
     var selection = document.querySelector('select')
     var currLocation = selection.options[selection.selectedIndex].text
     selection.addEventListener('change', function() {
@@ -94,6 +94,38 @@ if (window.location.pathname == '/C:/Users/jason/Documents/1classwork/PUI/A6/get
         })
 }
 
+//update current appointment type
+var apptTypeBttn = document.getElementsByClassName('typeButton')
+for (var i = 0; i < apptTypeBttn.length; i++) {
+    var button = apptTypeBttn[i]
+    //funcion to isolate i as local variable
+    function click(index) {
+        button.addEventListener('click', function () { ///////////////////////////////////////////
+            //update current selected time
+            //clear selection formatting
+            for (var i = 0; i < apptTypeBttn.length; i++) {
+                apptTypeBttn[i].style.backgroundColor = "#F0F0F0"
+                apptTypeBttn[i].style.color = "black" 
+            }
+            //update formating to show current selection
+            apptTypeBttn[index].style.backgroundColor = "#BB0000"
+            apptTypeBttn[index].style.color = "white"
+            
+            //update currTime
+            var currType = apptTypeBttn[index].innerText
+            currAppointment.type = currType
+
+            
+            //update the appointment display and book button 
+            resetBookButton()
+            updateDisplay()
+
+        })  
+    }
+    click(i)
+}  
+
+//////////////////////// selectand book current appointment ////////////////////////
 //check if add to my appointments button is clicked
 var addAppointmentButton = document.getElementsByClassName('bookButton')
 for (var i = 0; i < addAppointmentButton.length; i++) {
@@ -109,9 +141,9 @@ function addAppointmentClick(event) {
         bookButton.innerText = "Added"
         bookButton.style.backgroundColor = "green"
         
-        //add appointment to list (this is part of the next assignment), for now just log
-        console.log(currAppointment)
-
+        //add appointment to array (this is part of the next assignment), for now just log
+        myAppts.push(currAppointment)
+        console.log(myAppts)
     }
 }
 
@@ -131,7 +163,7 @@ function removeAppointment(event) {
 //////////////////////// helper functions ////////////////////////
 function resetBookButton() {
     //only reset if all appt info is selected
-    if (currAppointment.time !== 'none selected' && currAppointment.location !== 'any') {
+    if (currAppointment.time !== 'none selected' && currAppointment.location !== 'any' && currAppointment.type !== 'none selected') {
         var bookButton = document.getElementsByClassName('bookButton')[0]
         bookButton.innerText = "Add to my appointments"
         bookButton.style.backgroundColor = '#BB0000'
@@ -140,40 +172,10 @@ function resetBookButton() {
         bookButton.style.filter = 'drop-shadow(2px 4px 2px gray)'
     }
 }
+//edit div to show appointment selection
 function updateDisplay() {
-    if (currAppointment.time !== 'none selected' && currAppointment.location !== 'any') {
-        //edit html div to show selection and add book button
+    if (currAppointment.time !== 'none selected' && currAppointment.location !== 'any' && currAppointment.type !== 'none selected') {
         selectedAppt = document.getElementsByClassName("selectedAppointment")[0]
         selectedAppt.innerHTML = '<br><br><b>COVID '+currAppointment.type+'</b><br>'+currAppointment.month+' '+currAppointment.date+', '+currAppointment.time+' '+currAppointment.location
     }
 }
-
-/* function graveyard (will be removed/implemented for final)
-
- //update cancel button to go back to appointments
-    var cancelButton = document.getElementsByClassName('noButton')[0]
-    cancelButton.innerText = "See more appointments"
-    console.log(cancelButton)
-
-//add appointment to my appointment page
-function addAppointmentLog(appointment) {
-    var newAppt = document.createElement('div')
-    var upcomingAppointments = document.getElementByClassName('upcomingAppointments')[0]
-    upcomingAppointments.append(newAppt)
-}
-
-//create appointment times in html
-function makeAppt {
-    for (var i = 9; i < 17; i++) {
-        if (i < 12) {
-            var timeDisplay = i + ":00" + "a"
-            var currLocation = "University Garage"
-        }
-        else {
-            var time = i-12
-            var timeDisplay = time + ":00" + "p"
-            var currLocation = "University Gym"
-        }
-        appt('test', timeDisplay, location, date)
-} 
-*/

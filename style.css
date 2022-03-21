@@ -100,7 +100,7 @@ button {
   height: 60px;
   margin: 30px;
   font-size: 24px; 
-  background-color: white;
+  background-color: #F0F0F0;
 }
 
 .bookButton {
@@ -135,10 +135,6 @@ button {
   height: 150px;
   width: 520px;
   display: inline-block;
-}
-
-.popUp {
-    background-color: #F0F0F0;
 }
 
 /* Split the screen in half */
@@ -185,21 +181,17 @@ button {
 
     /*          calander formatting          */
     /* weekday title */
-   
     th {
         padding: 20px;
         font-weight: normal;
         font-size:18px;
         color: gray;
     }
-
     .dayTitle > th {
       font-weight: bold;
       color: black;
     }
   
-
-
     /*          appointment selection            */
       /* time selection */
 
@@ -231,6 +223,14 @@ button {
     .help {
         font-size: 14px;
     }
+
+    #cart {
+      color: white;
+      background-color: #BB0000;
+      transform: translate(40VW, 3VH);
+    }
+
+   
 
 
  

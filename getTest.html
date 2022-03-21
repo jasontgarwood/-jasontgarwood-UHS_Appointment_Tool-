@@ -51,7 +51,7 @@
                 <!-- Choose a location input -->
                 <div>
                     <h2></h2>
-                    <p>Choose an on campus location that works for you</p>
+                    <p><b>Choose an on campus location that works for you.</b></p>
                     <select name="location" id="location" class="pullDown">
                         <!-- Pulldown Content -->
                         <option value="Any">Any</option>
@@ -66,12 +66,13 @@
 
         <!-- content for right portion of screen -->
         <div class="split right">
+            <button id="cart" onclick="window.location.href='myAppointments.html';">0</button>
             <div class="centered">
-                <h2>Select an available <b>Testing</b> <br>appointment.</h2>             
+                <h2>Select an available<br>appointment.</h2>             
                 <!-- vaccine selection input -->
                 <div>
-                    <button class="noButton">Vaccination</button>
-                    <button class="noButton">Test</button>
+                    <button class="typeButton">Vaccination</button>
+                    <button class="typeButton">Test</button>
                 </div>
                 <!-- time selection input -->
                 <div>
@@ -89,7 +90,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p class="selectedAppointment"><br><br>Please Select a time.</p> 
+                    <p class="selectedAppointment"><br><br>Please Select an appointment location, type, and time.</p> 
                     <button class="bookButton">click here once you've selected an appointment</button>
                 </div>
             </div>
