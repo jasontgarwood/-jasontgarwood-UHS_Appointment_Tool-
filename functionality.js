@@ -7,7 +7,7 @@ function appt(type, time, location, date, month) {
     this.date = date
     this.month = month
 }
-
+//array of appointments
 var myAppts = [];
 // initialize calendat
 var selectedDay = 1
