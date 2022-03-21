@@ -65,16 +65,12 @@ for (var i = 0; i < apptBttn.length; i++) {
             //update formating to show current selection
             apptBttn[index].style.backgroundColor = "#BB0000"
             apptBttn[index].style.color = "white"
-            
             //update currTime
             var currTime = apptBttn[index].innerText
             currAppointment.time = currTime
-
-            
             //update the appointment display and book button 
             resetBookButton()
             updateDisplay()
-
         })  
     }
     click(i)
@@ -90,9 +86,8 @@ if (window.location.pathname == '/C:/Users/jason/Documents/GitHub/UHS_Appointmen
         //update the appointment display and book button 
         resetBookButton()
         updateDisplay()
-        })
+    })
 }
-
 //update current appointment type
 var apptTypeBttn = document.getElementsByClassName('typeButton')
 for (var i = 0; i < apptTypeBttn.length; i++) {
@@ -115,7 +110,6 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
             //update the appointment display and book button 
             resetBookButton()
             updateDisplay()
-
         })  
     }
     click(i)
@@ -128,7 +122,6 @@ for (var i = 0; i < addAppointmentButton.length; i++) {
     var button = addAppointmentButton[i]
     button.addEventListener('click', addAppointmentClick)     
     }
-
 //add the appointment when clicked
 function addAppointmentClick(event) {
     //update add button with feedback
