@@ -13,6 +13,9 @@ var myAppts = []
 var selectedDay = 1
 //create the currently selected appointment 
 var currAppointment = new appt('none selected','none selected','any',selectedDay, 'February') 
+//update cart
+var cartCount = document.getElementById('cart')
+cartCount.innerText = myAppts.length
 
 //////////////////////// update current appointment information ////////////////////////
 //update current appointment day
@@ -77,7 +80,7 @@ for (var i = 0; i < apptBttn.length; i++) {
 }  
 
 //update current selected location based on pulldown menu
-if (document.getElementByClassName("select") !== null) { 
+if (document.getElementsByClassName('pullDown') !== null) { 
     var selection = document.querySelector('select')
     var currLocation = selection.options[selection.selectedIndex].text
     selection.addEventListener('change', function() {
@@ -115,6 +118,8 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
     click(i)
 }  
 
+
+
 //////////////////////// selectand book current appointment ////////////////////////
 //check if add to my appointments button is clicked
 var addAppointmentButton = document.getElementsByClassName('bookButton')
@@ -132,6 +137,7 @@ function addAppointmentClick(event) {
         //add appointment to array (this is part of the next assignment), for now just log
         myAppts.push(currAppointment)
         console.log(myAppts)
+        cartCount.innerText = myAppts.length
     }
 }
 
