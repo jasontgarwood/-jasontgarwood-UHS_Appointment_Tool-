@@ -80,7 +80,7 @@ for (var i = 0; i < apptBttn.length; i++) {
 }  
 
 //update current selected location based on pulldown menu
-if (document.getElementsByClassName('pullDown') !== null) { 
+if (document.getElementsByClassName('pullDown')[0] !== undefined) { 
     var selection = document.querySelector('select')
     var currLocation = selection.options[selection.selectedIndex].text
     selection.addEventListener('change', function() {
