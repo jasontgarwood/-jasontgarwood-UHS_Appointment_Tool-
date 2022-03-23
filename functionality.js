@@ -13,10 +13,18 @@ var myAppts = []
 var selectedDay = 1
 //create the currently selected appointment 
 var currAppointment = new appt('none selected','none selected','any',selectedDay, 'February') 
-//update cart
-var cartCount = document.getElementById('cart')
-cartCount.innerText = myAppts.length
+//update cart///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var cartButton = document.getElementById('cart')
+cartCountSave_json = localStorage.getItem("cartCountSave")
+if (cartCountSave_json == null) {
+    cartButton.innerText = '0'
+}
+else {
+    cartButton.innerText = JSON.parse(cartCountSave_json)
+}
 
+
+//getAppointment()
 //////////////////////// update current appointment information ////////////////////////
 //update current appointment day
 var calendar = document.querySelectorAll('th')
@@ -31,7 +39,7 @@ for (var i = 7; i < calendar.length; i++) {
     //funcion to isolate i as local variable
     function click(index) {
         var currDay = calendar[index]
-        currDay.addEventListener('click', function () { //////////////////////////////////////////////// calendar
+        currDay.addEventListener('click', function () { //////////////////////// calendar
             //reset calander formatting
             for (var i = 7; i < calendar.length; i++) {
                 var day = calendar[i]
@@ -58,7 +66,7 @@ for (var i = 0; i < apptBttn.length; i++) {
     var button = apptBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { ///////////////////////////////////////////
+        button.addEventListener('click', function () { ///////////////////////// time
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptBttn.length; i++) {
@@ -97,7 +105,7 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
     var button = apptTypeBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { ///////////////////////////////////////////////////////////
+        button.addEventListener('click', function () { ///////////////////////// type
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptTypeBttn.length; i++) {
@@ -118,8 +126,6 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
     click(i)
 }  
 
-
-
 //////////////////////// selectand book current appointment ////////////////////////
 //check if add to my appointments button is clicked
 var addAppointmentButton = document.getElementsByClassName('bookButton')
@@ -127,19 +133,51 @@ for (var i = 0; i < addAppointmentButton.length; i++) {
     var button = addAppointmentButton[i]
     button.addEventListener('click', addAppointmentClick)     
     }
-//add the appointment when clicked
+
+
+    //add the appointment when clicked
 function addAppointmentClick(event) {
     //update add button with feedback
     var bookButton = document.getElementsByClassName('bookButton')[0]
     if (bookButton.innerText == "Add to my appointments") {
         bookButton.innerText = "Added"
         bookButton.style.backgroundColor = "green"
-        //add appointment to array (this is part of the next assignment), for now just log
+        //add appointment to array and save in local storage 
         myAppts.push(currAppointment)
-        console.log(myAppts)
-        cartCount.innerText = myAppts.length
+        
+        
+        saveAppointment()//////////////////////////////////////////////////////////allow only one type of appointment each
+            
+        saveCartCount()
+        //save cart count
+        
+        //localStorage.getItem("savedAppts").length
+        
     }
 }
+
+/*** Document Load ****/
+function onLoad() {
+
+    /////all pages
+        //update cart number as length of savedAppts
+    
+    ////my appointments
+        //load savedAppts and add html elements as appropriate
+        //in order of date somehow 
+
+}
+
+function onLoadDisplayAppts() {
+    getAppointment()
+    
+    for (var i = 0; i < myApts.length; i++) {
+        console.log('yes')
+        
+    }       
+}
+
+
 
 //////////////////////// myAppointments page ////////////////////////
 //check if remove button is clicked
@@ -152,7 +190,10 @@ for (var i = 0; i < removeAppointmentButton.length; i++) {
 function removeAppointment(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.remove()
+    //remove said appointment from the savedAppts
     }
+
+
 
 //////////////////////// helper functions ////////////////////////
 //restore book button to clickable state
@@ -173,4 +214,21 @@ function updateDisplay() {
         selectedAppt = document.getElementsByClassName("selectedAppointment")[0]
         selectedAppt.innerHTML = '<br><br><b>COVID '+currAppointment.type+'</b><br>'+currAppointment.month+' '+currAppointment.date+', '+currAppointment.time+' '+currAppointment.location
     }
+}
+
+//save appointment to local storage
+function saveAppointment() {
+    myAppt_json =  JSON.stringify(myAppts)
+    localStorage.setItem("savedApptArray", myAppt_json)
+
+}
+//update the myAppt array
+function getAppointment() {
+    myAppt_json =  localStorage.getItem("savedApptArray")
+    myAppts = JSON.parse(myAppt_json)
+}
+//save the cart count to local storage
+function saveCartCount() {
+    cartButton.innerText = myAppts.length
+    localStorage.setItem("cartCountSave", JSON.stringify(cartButton.innerText))
 }
