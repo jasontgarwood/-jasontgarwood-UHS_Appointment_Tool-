@@ -156,19 +156,12 @@ function onLoadDisplayAppts() {
     if (myAppts !== null) {
         for (var i = 0; i < myAppts.length; i++) {
             console.log('yes')
-            
             var thisAppt = myAppts[i]
-
             var upcomingAppts = document.getElementsByClassName('upcomingAppointments')[0]            
             const newDiv = document.createElement('div')
             newDiv.innerHTML = "<p class='appointment'>"+thisAppt.type+", "+thisAppt.month+" "+thisAppt.date+", "+thisAppt.time+", "+thisAppt.location+"</p>"
             newDiv.innerHTML += '<button class="buttonRed2">Cancel</button>'
-            //'<b>COVID '+thisAppt.type+'</b>'+thisAppt.month+' '+thisAppt.date+', '+thisAppt.time+' '+thisAppt.location
-
             upcomingAppts.appendChild(newDiv)
-            
-            //myAppts[i]
-
         }  
     }    
 }
