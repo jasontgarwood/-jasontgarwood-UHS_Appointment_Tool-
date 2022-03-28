@@ -179,7 +179,7 @@ for (var i = 0; i < removeAppointmentButton.length; i++) {
 function removeAppointment(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.remove()
-    //remove said appointment from the savedAppts
+    //remove said appointment from the savedAppts and update local storage
     }
 
 
