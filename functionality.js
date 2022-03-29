@@ -100,7 +100,7 @@ for (var i = 0; i < apptTypeBttn.length; i++) {
     var button = apptTypeBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { ///////////////////////// type
+        button.addEventListener('click', function() { ///////////////////////// type
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptTypeBttn.length; i++) {
@@ -155,32 +155,76 @@ function onLoadDisplayAppts() {
     getAppointment()
     if (myAppts !== null) {
         for (var i = 0; i < myAppts.length; i++) {
-            console.log('yes')
             var thisAppt = myAppts[i]
             var upcomingAppts = document.getElementsByClassName('upcomingAppointments')[0]            
             const newDiv = document.createElement('div')
             newDiv.innerHTML = "<p class='appointment'>"+thisAppt.type+", "+thisAppt.month+" "+thisAppt.date+", "+thisAppt.time+", "+thisAppt.location+"</p>"
-            newDiv.innerHTML += '<button class="buttonRed2">Cancel</button>'
+            newDiv.innerHTML += '<button class="buttonRed2" onclick="removeAppointment()">Cancel</button>'
             upcomingAppts.appendChild(newDiv)
         }  
     }    
 }
 
 
-
 //////////////////////// myAppointments page ////////////////////////
-//check if remove button is clicked
-var removeAppointmentButton = document.getElementsByClassName('buttonRed2')
-for (var i = 0; i < removeAppointmentButton.length; i++) {
-    var button = removeAppointmentButton[i]
-    button.addEventListener('click', removeAppointment)        
-    }
 //remove appointment on button click
-function removeAppointment(event) {
+function removeAppointment() {
     var buttonClicked = event.target
     buttonClicked.parentElement.remove()
-    //remove said appointment from the savedAppts and update local storage
+
+
+    //remove said appointment from the savedAppts 
+    //update local storage
+    //update cart
+
+}
+
+
+
+  /*
+
+  //check if remove button is clicked
+var removeAppointmentButton = document.getElementsByClassName('buttonRed2')
+
+for (var i = 0; i < removeAppointmentButton.length; i++) {
+    var button = removeAppointmentButton[i]
+    button.addEventListener('click', function() {
+        //remove the apointment from the list
+        console.log(myAppts)
+        //resave as local storage
+        //redisplay appts  
+    })
+}
+
+
+
+removeAppointmentButton.forEach(function(button, index) {
+    button.addEventListener('click', function() {
+        console.log('hello')
+        //var buttonClicked = event.target
+        //buttonClicked.parentElement.remove()
     }
+)})
+
+ var button = removeAppointmentButton[i]
+    function click(index) {
+        button.addEventListener('click', function() {
+            
+            removeAppointmentButton[i].style.color = "black"
+
+            //var buttonClicked = event.target
+            //buttonClicked.parentElement.remove()
+            
+        }) 
+    }
+    click(i)
+}
+      
+    }
+
+    */
+
+
 
 
 //////////////////////// helper functions ////////////////////////
