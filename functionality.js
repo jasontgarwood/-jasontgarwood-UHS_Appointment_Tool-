@@ -230,7 +230,7 @@ function saveCartCount() {
 function updateCartCount() {
     cartButton = document.getElementById('cart')
     cartCountSave_json = localStorage.getItem("cartCountSave")
-    if (cartCountSave_json == null) {
+    if (cartCountSave_json == null || cartCountSave_json == undefined) {
         cartButton.innerText = '0'
     }
     else {
