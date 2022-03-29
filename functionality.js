@@ -7,6 +7,7 @@ function appt(type, time, location, date, month) {
     this.date = date
     this.month = month
 }
+
 //initialize appointments
 var myAppts,myAppt_json
 //initialize cart
@@ -18,7 +19,6 @@ var currAppointment = new appt('none selected','none selected','any',selectedDay
 //update cart and appointments
 updateCartCount()
 getAppointment()
-
 
 //////////////////////// update current appointment information ////////////////////////
 //update current appointment day
@@ -55,14 +55,14 @@ for (var i = 7; i < calendar.length; i++) {
         })}
     click(i)
 }
+
 //update current appointment time
 var apptBttn = document.getElementsByClassName('timeButton')
 for (var i = 0; i < apptBttn.length; i++) {
     var button = apptBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function () { ///////////////////////// time
-            //update current selected time
+        button.addEventListener('click', function () { 
             //clear selection formatting
             for (var i = 0; i < apptBttn.length; i++) {
                 apptBttn[i].style.backgroundColor = "white"
@@ -71,7 +71,7 @@ for (var i = 0; i < apptBttn.length; i++) {
             //update formating to show current selection
             apptBttn[index].style.backgroundColor = "#BB0000"
             apptBttn[index].style.color = "white"
-            //update currTime
+            //update current selected time
             var currTime = apptBttn[index].innerText
             currAppointment.time = currTime
             //update the appointment display and book button 
@@ -94,13 +94,14 @@ if (document.getElementsByClassName('pullDown')[0] !== undefined) {
         updateDisplay()
     })
 }
+
 //update current appointment type
 var apptTypeBttn = document.getElementsByClassName('typeButton')
 for (var i = 0; i < apptTypeBttn.length; i++) {
     var button = apptTypeBttn[i]
     //funcion to isolate i as local variable
     function click(index) {
-        button.addEventListener('click', function() { ///////////////////////// type
+        button.addEventListener('click', function() { 
             //update current selected time
             //clear selection formatting
             for (var i = 0; i < apptTypeBttn.length; i++) {
@@ -132,22 +133,33 @@ for (var i = 0; i < addAppointmentButton.length; i++) {
 //add the appointment when clicked
 function addAppointmentClick(event) {
     //update add button with feedback
-    var bookButton = document.getElementsByClassName('bookButton')[0]
-    if (bookButton.innerText == "Add to my appointments") {
-        bookButton.innerText = "Added"
-        bookButton.style.backgroundColor = "green"
-        //add appointment to array 
-        
-        
-        myAppts.push(currAppointment)
-        
-        //save in local storage
-        saveAppointment()     
-        //allow only one type of appointment each  
-        saveCartCount()
-        updateCartCount()
+    var bookButton = document.getElementsByClassName('bookButton')[0]    
+        //determine if the appointment is already scheduled 
+        var include = true
+        if (myAppts !== null) {
+            for (var i = 0; i < myAppts.length; i++) {
+                if (myAppts[i] == currAppointment || myAppts[i].type == currAppointment.type) {
+                    include = false
+                }
+            }
+        }
+        //save the appointment if it is a new, availble appointment
+        if (include != false) {
+            myAppts.push(currAppointment)
+            //update book button for user feedback
+            if (bookButton.innerText == "Add to my appointments") {
+                bookButton.innerText = "Added"
+                bookButton.style.backgroundColor = "green"
+            }
+            //save in local storage and update cart
+            saveAppointment()     
+            saveCartCount()
+            updateCartCount()
+        }
+        else {
+            alert('You already have an upcoming appointment like this! Please go to "My Appointments" if you would like to cancel and reschedule.')
+        }
     }
-}
 
 //loop through the appointments and write the HTML to display them
 function onLoadDisplayAppts() {
@@ -174,19 +186,13 @@ function removeAppointment() {
     var div = buttonClicked.parentElement
     var index = div.lastElementChild.innerHTML
     div.remove()
-    
     //remove said appointment from the savedAppts 
     myAppts.splice(index,1)
-    
     //update local storage of appointments and cart count
     saveAppointment()
     saveCartCount()
     updateCartCount()
 }
-
-
-
- 
 
 //////////////////////// helper functions ////////////////////////
 //restore book button to clickable state
@@ -242,5 +248,3 @@ function updateCartCount() {
         cartButton.innerText = JSON.parse(cartCountSave_json)
     }
 }
-
-//window.onLoad = function
