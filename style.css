@@ -198,8 +198,9 @@ th {
   background-color: #BB0000;
   transform: translate(40VW, 3VH);
 }
-
-   
+#hidden {
+  visibility: hidden;
+}
 
 
  

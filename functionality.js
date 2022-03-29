@@ -145,7 +145,6 @@ function addAppointmentClick(event) {
         saveAppointment()     
         //allow only one type of appointment each  
         saveCartCount()
-        
         updateCartCount()
     }
 }
@@ -160,6 +159,8 @@ function onLoadDisplayAppts() {
             const newDiv = document.createElement('div')
             newDiv.innerHTML = "<p class='appointment'>"+thisAppt.type+", "+thisAppt.month+" "+thisAppt.date+", "+thisAppt.time+", "+thisAppt.location+"</p>"
             newDiv.innerHTML += '<button class="buttonRed2" onclick="removeAppointment()">Cancel</button>'
+            //element to record the index in myAppts
+            newDiv.innerHTML += "<p id='hidden'>"+i+"</p> "
             upcomingAppts.appendChild(newDiv)
         }  
     }    
@@ -170,62 +171,22 @@ function onLoadDisplayAppts() {
 //remove appointment on button click
 function removeAppointment() {
     var buttonClicked = event.target
-    buttonClicked.parentElement.remove()
-
-
+    var div = buttonClicked.parentElement
+    var index = div.lastElementChild.innerHTML
+    div.remove()
+    
     //remove said appointment from the savedAppts 
-    //update local storage
-    //update cart
-
+    myAppts.splice(index,1)
+    
+    //update local storage of appointments and cart count
+    saveAppointment()
+    saveCartCount()
+    updateCartCount()
 }
 
 
 
-  /*
-
-  //check if remove button is clicked
-var removeAppointmentButton = document.getElementsByClassName('buttonRed2')
-
-for (var i = 0; i < removeAppointmentButton.length; i++) {
-    var button = removeAppointmentButton[i]
-    button.addEventListener('click', function() {
-        //remove the apointment from the list
-        console.log(myAppts)
-        //resave as local storage
-        //redisplay appts  
-    })
-}
-
-
-
-removeAppointmentButton.forEach(function(button, index) {
-    button.addEventListener('click', function() {
-        console.log('hello')
-        //var buttonClicked = event.target
-        //buttonClicked.parentElement.remove()
-    }
-)})
-
- var button = removeAppointmentButton[i]
-    function click(index) {
-        button.addEventListener('click', function() {
-            
-            removeAppointmentButton[i].style.color = "black"
-
-            //var buttonClicked = event.target
-            //buttonClicked.parentElement.remove()
-            
-        }) 
-    }
-    click(i)
-}
-      
-    }
-
-    */
-
-
-
+ 
 
 //////////////////////// helper functions ////////////////////////
 //restore book button to clickable state
@@ -250,7 +211,7 @@ function updateDisplay() {
 
 //save appointment to local storage
 function saveAppointment() {
-     myAppt_json =  JSON.stringify(myAppts)
+    myAppt_json =  JSON.stringify(myAppts)
     localStorage.setItem("savedApptArray", myAppt_json)
 }
 
