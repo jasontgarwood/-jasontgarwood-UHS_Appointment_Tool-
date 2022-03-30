@@ -24,7 +24,21 @@ Project Reflection:
 https://docs.google.com/document/d/1QYHKSfw1KN8aDGc81CtxqrOQE8sBBIA0EIsHBLNJmiI/edit?usp=sharing
 
 Bonus:
-
+Making the page responsive: The split columns for the 
+page's progressive disclosure dynamically change their 
+sizing based on the screen size. This keeps each side's 
+respective elements within each column.
+Some interesting and useful JavaScript functionality:
+The JavaScript only allows users to book one appointment 
+of each type and users cannot book the same appointment 
+twice. This feature makes use of the JavaScript function
+alert() to remind users. 
+Add product pages for all your products: Instead of having
+multiple product pages, this project has users create the 
+object before appending it to the array. To satisfy this
+bonus, this project has a element that automatically updates
+on the 'my appointments' page that can  dynamically display 
+any combination of appointment times, types, dates, or locations. 
 
 Credits/Special Thanks: 
 Completed as part of 05-430, Programming User Interfaces
