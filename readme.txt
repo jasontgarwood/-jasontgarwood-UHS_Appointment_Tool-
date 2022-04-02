@@ -45,3 +45,8 @@ Completed as part of 05-430, Programming User Interfaces
 at CMU Special thanks to the peer reviewers and Vikram 
 Kamath (TA) for all of the help! This was my first 
 experience with HTML, CSS, and JS. 
+
+NOTE: There is an occasional bug on the hosted page dues to 
+GitHub's choice to disable FLoC (Google's 3rd party cookie alternative).
+This is not an issue with the code and Vikram (TA) stated it 
+will not affect grading. 
